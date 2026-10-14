@@ -14,16 +14,16 @@ public class CalculatePractice {
       Scanner scanner = new Scanner(System.in);
       System.out.print("hello: ");
       String input = scanner.nextLine();
+      scanner.close();
       return input;
     }
   public static void main(String[] args) {
-    CalculatePractice a = new CalculatePractice();
+    CalculatePractice calculatePractice = new CalculatePractice();
 
-    System.out.println(a.calculate(5));
-    System.out.println(a.calculate(3, 4));
-    System.out.println(a.ul().toUpperCase());
+    System.out.println(calculatePractice.calculate(5));
+    System.out.println(calculatePractice.calculate(3, 4));
+    System.out.println(calculatePractice.ul().toUpperCase());
     StringReverse stringReverse = new StringReverse();
     System.out.println(stringReverse.reverse());
   }
-
 }
