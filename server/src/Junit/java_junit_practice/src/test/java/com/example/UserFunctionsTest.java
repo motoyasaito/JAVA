@@ -1,12 +1,14 @@
 package com.example;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import java.time.Duration;
 import org.junit.jupiter.api.AfterEach;
 
 public class UserFunctionsTest {
@@ -39,6 +41,21 @@ public class UserFunctionsTest {
     userFunctions.setGender("FEMALE");
     userFunctions.setFitnessScore(54);
     assertFalse(userFunctions.isFitnessTestPassed());
+  }
+
+  @Test
+  void testMethodCompletesInTime() {
+    assertTimeout(Duration.ofMillis(1), () -> {
+      userFunctions.isFitnessTestPassed();
+    });
+  }
+
+  @Test
+  void division0Test() {
+    ArithmeticException exceptionClass = assertThrows(ArithmeticException.class, () -> {
+      userFunctions.divide(100, 0);
+    });
+    assertEquals("/ by zero", exceptionClass.getMessage());
   }
 
   @AfterEach
