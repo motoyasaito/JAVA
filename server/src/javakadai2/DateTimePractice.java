@@ -1,0 +1,12 @@
+//現在の日付と時刻
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class DateTimePractice {
+  public static void main(String[] args) {
+    LocalDateTime now = LocalDateTime.now();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    String formatDateTime = now.format(formatter);
+    System.out.println(formatDateTime);
+  }
+}
