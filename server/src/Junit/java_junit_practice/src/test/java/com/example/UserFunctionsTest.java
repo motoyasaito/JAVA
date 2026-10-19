@@ -69,15 +69,16 @@ public class UserFunctionsTest {
     });
     assertEquals("/ by zero", exceptionClass.getMessage());
   }
-//最終応用練習問題
+
+  // 最終応用練習問題
   @Test
   void check50TrueTest() {
     assertTrue(userFunctions.checkAndPass(50, mockedScoreValidator));
   }
 
   @Test
-  void check49TrueTest() {
-    assertTrue(userFunctions.checkAndPass(49, mockedScoreValidator));
+  void check49FalseTest() {
+    assertFalse(userFunctions.checkAndPass(49, mockedScoreValidator));
   }
 
   @Test
@@ -155,7 +156,6 @@ public class UserFunctionsTest {
   void male70FalseTest() {
     userFunctions.setAge(19);
     userFunctions.setFitnessScore(70);
-
     userFunctions.setGender("MALE");
     assertFalse(userFunctions.isFitnessTestPassed());
   }
