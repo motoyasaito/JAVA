@@ -56,7 +56,7 @@ public class UserFunctionsTest {
   }
 
   @Test
-  void testMethodCompletesInTime() {
+  void addTimeoutTest() {
     assertTimeout(Duration.ofMillis(1), () -> {
       userFunctions.add(1, 3);
     });
